@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <title>Azure Maps</title>
+
+    <meta charset="utf-8" />
+	<link rel="shortcut icon" href="{% static '/favicon.ico' %}"/>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="This tutorial shows how to create an interactive search experience." />
+    <meta name="keywords" content="Microsoft maps, map, gis, API, SDK, services, module, tutorials, search, point of interest, POI, GIS, custom, control, custom control, geolocation, user, location, position, tracking, gps, gps tracking" />
+    <meta name="author" content="Microsoft Azure Maps" />
+
+    <link rel="manifest" href="{% static '/manifest.json' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+
+    <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+</head>
+
+<body onload="GetMap()">
+    <div id="donnees">
+        <form id="formulaire">
+            <input type="datetime-local" id="temps">
+            <select name="crimes" id="choix">
+                <option value="un">un</option>
+                <option value="deux">deux</option>
+                <option value="trois">trois</option>
+            </select>
+            <input type="button" value="quitter" id="quitter" placeholder="quitter">
+            <input type="submit" value="valide" id="valide" >
+            <input type="text" name="" id="cordon">
+        </form>
+    </div>
+    <script>
+        window.addEventListener('load', ()=>{
+          if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js', { scope: './' })
+      }
+    })
+      </script>
+        <header><!--barre de navigation et titre-->
+            <div class="titre">
+                <div class="e">E</div>
+                <div class="d">d</div>
+                <div class="i">i</div>
+                <div class="t">t</div>
+            </div>
+            </header>
+            <div id="bouton"><!--bouton pour afficher le menu-->
+                <div class="un"></div>
+                <div class="deux"></div>
+                <div class="trois"></div>
+            </div>
+            <div class="menu"><!--menu a droite au click-->
+                <div class="claire" id="claire"> <p class="text">claire</p> </div><!--mode d'affichage claire ou sombre-->
+                <div class="sombre" id="sombre"> <p class="txt">sombre</p> </div>
+            </div>
+            <main id="ecran">
+                <div class="contient">
+                    <div id="danger"><!--boutons d'alert pour informer ses proches de sa position et demander de l'aide aux personnes a proximite -->
+                        <img src="{% static 'icons/img.png' %}" alt="attente" id='dangerIcone'>
+                    </div>
+                </div>
+                <!--carte-->
+
+            </main>
+
+            <script src="{% static 'js/script.js' %}"></script><!--nom code js est la-->
+
+    <div id="myMap"></div>
+
+    <div id="search">
+        <div class="search-input-box" id="searchI">
+            <div class="search-input-group" id="saisit">
+                <div class="search-icon" type="button"></div>
+                <input id="search-input" type="text" placeholder="Search">
+            </div>
+        </div>
+        <ul id="results-panel"></ul>
+    </div>
+    <!--button id="cor">ess</button-->
+    <script src="{% static '/Common/scripts/azure-maps-geolocation-control.min.js' %}"></script>
+
+</body>
+
+</html>
+
