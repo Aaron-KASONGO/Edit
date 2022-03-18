@@ -14,4 +14,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DATABASES['default'] = dj_database_url.config()
 
-ALLOWED_HOSTS = ['imagedescription.herokuapp.com']
+ALLOWED_HOSTS = ['shelterteams.herokuapp.com']
