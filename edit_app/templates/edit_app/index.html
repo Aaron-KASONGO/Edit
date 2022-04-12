@@ -26,13 +26,9 @@
 <body onload="GetMap()">
     <div id="donnees">
         <form id="formulaire">
-            <input type="datetime-local" id="temps">
-            <select name="crimes" id="choix">
-                <option value="un">un</option>
-                <option value="deux">deux</option>
-                <option value="trois">trois</option>
-            </select>
-            <input type="button" value="quitter" id="quitter" placeholder="quitter">
+            {% csrf_token %}
+            {{ form }}
+            <input type="reset" value="quitter" id="quitter" placeholder="quitter">
             <input type="submit" value="valide" id="valide" >
             <input type="text" name="" id="cordon">
         </form>
