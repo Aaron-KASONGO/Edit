@@ -1,1 +1,1 @@
-web: gunicorn cognitives.wsgi
+web: gunicorn Edit.wsgi
